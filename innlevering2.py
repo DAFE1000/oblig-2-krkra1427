@@ -12,8 +12,9 @@ def f_derivert(x):
 
 
 # Plot av f(x)
-x = np.linspace(0, 10, 100)
+x = np.linspace(0, 20, 1000)
 y = f(x)
-plt.plot(x, f(x))
+plt.plot(x, y)
+plt.title("f(x)")
 plt.grid()
 plt.show()
