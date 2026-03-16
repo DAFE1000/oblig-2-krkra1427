@@ -1,7 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Funksjonen f(x) og dens deriverte
+# Oppgave: En funksjon f(x) har et maksimalpunkt. 
+# Bestem topp punkt med fire rette desimaler. 
+# Plott funksjonen og markér toppunktet du fann i dette plottet.
+
+# Funksjonen f(x) og dens deriverte f´(x)
 def f(x):
     return np.exp(-x/4) * np.arctan(x)
 
@@ -34,23 +38,29 @@ def halveringsmetode(a, b, n):
     return x_h, n, teller
     
 
-# Plot
-x = np.linspace(-1, 5, 1000) 
-funk = f(x)
-funk_d = f_d(x)
-
-plt.plot(x, funk, color='blue')
-plt.plot(x, funk_d, color='red')
-plt.title("f(x) og f´(x)")
-plt.grid()
-plt.show()
-
-
-# Utskrift av svar med halveringsmetode samt plot
 def main ():
+# Utskrift av svar med halveringsmetode
+# plot av f(x), f´(x) og toppunkt til f(x) (f´(x)=0) funnet med halveringsmetoden
 
     x_h, n, teller = halveringsmetode(-1, 2, 4)
     print(f"Halveringsmetoden: toppunkt x = {x_h:.{n}f}, y = {f(x_h):.{n}f}. Antall iterasjoner: {teller}")   
+  
+    x = np.linspace(-1, 5, 1000) 
+    funk = f(x)
+    funk_d = f_d(x)
+    
+    plt.plot(x, funk, color='blue')
+    plt.plot(x, funk_d, color='red')
+    plt.plot(x_h, f(x_h), 'rx', markersize=5, fillstyle='none')
+
+    # Rutenett, tittel
+    plt.axhline(0, color='black')
+    plt.axvline(0, color='black')
+    plt.grid(visible=True)
+    plt.title("f(x) og f´(x)")
+    plt.show()
+
 
 if __name__ == "__main__":
     main()
+
