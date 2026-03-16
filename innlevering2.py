@@ -38,9 +38,8 @@ def halveringsmetode(a, b, n):
     return x_h, n, teller
     
 
+# Utskrift av svar med halveringsmetode samt plot
 def main ():
-# Utskrift av svar med halveringsmetode
-# plot av f(x), f´(x) og toppunkt til f(x) (f´(x)=0) funnet med halveringsmetoden
 
     x_h, n, teller = halveringsmetode(-1, 2, 4)
     print(f"Halveringsmetoden: toppunkt x = {x_h:.{n}f}, y = {f(x_h):.{n}f}. Antall iterasjoner: {teller}")   
@@ -48,7 +47,8 @@ def main ():
     x = np.linspace(-1, 5, 1000) 
     funk = f(x)
     funk_d = f_d(x)
-    
+
+    # plot av hhv. f(x), f´(x) og toppunkt til f(x) (f´(x)=0) funnet med halveringsmetoden
     plt.plot(x, funk, color='blue')
     plt.plot(x, funk_d, color='red')
     plt.plot(x_h, f(x_h), 'rx', markersize=5, fillstyle='none')
