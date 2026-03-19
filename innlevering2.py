@@ -38,26 +38,29 @@ def halveringsmetode(a, b, n):
     return x_h, n, teller
     
 
-# Utskrift av svar med halveringsmetode samt plot
 def main ():
+# Utskrift av svar med halveringsmetode
+
 
     x_h, n, teller = halveringsmetode(-1, 2, 4)
-    print(f"Halveringsmetoden: toppunkt x = {x_h:.{n}f}, y = {f(x_h):.{n}f}. Antall iterasjoner: {teller}")   
+    print(f"Numerisk beregning av toppunkt med halveringsmetoden: x_h = {x_h:.{n}f}, f(x_h) = {f(x_h):.{n}f}. Antall iterasjoner: {teller}")   
   
     x = np.linspace(-1, 5, 1000) 
     funk = f(x)
     funk_d = f_d(x)
-
-    # plot av hhv. f(x), f´(x) og toppunkt til f(x) (f´(x)=0) funnet med halveringsmetoden
-    plt.plot(x, funk, color='blue')
-    plt.plot(x, funk_d, color='red')
-    plt.plot(x_h, f(x_h), 'rx', markersize=5, fillstyle='none')
+    
+    # plot av f(x), f´(x) og toppunkt til f(x) (f´(x)=0) funnet med halveringsmetoden
+    plt.plot(x, funk, color='blue', label='f(x)')
+    plt.plot(x, funk_d, color='red', label="f'(x)")
+    plt.plot(x_h, f(x_h), 'o', markersize=5, label=f'Toppunkt (x={x_h:.4f})')
 
     # Rutenett, tittel
     plt.axhline(0, color='black')
     plt.axvline(0, color='black')
     plt.grid(visible=True)
-    plt.title("f(x) og f´(x)")
+    plt.title("f(x), f´(x) og Toppunkt")
+    
+    plt.legend()
     plt.show()
 
 
