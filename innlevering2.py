@@ -38,10 +38,9 @@ def halveringsmetode(a, b, n):
     return x_h, n, teller
     
 
+# Utskrift og plot av svar med halveringsmetoden
 def main ():
-# Utskrift av svar med halveringsmetode
-
-
+    
     x_h, n, teller = halveringsmetode(-1, 2, 4)
     print(f"Numerisk beregning av toppunkt med halveringsmetoden: x_h = {x_h:.{n}f}, f(x_h) = {f(x_h):.{n}f}. Antall iterasjoner: {teller}")   
   
